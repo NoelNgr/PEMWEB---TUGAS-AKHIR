@@ -1,4 +1,4 @@
-Tugas project website membuat web DAGANGIN 🛒
+Tugas project website membuat web KALC3RIN
 
 List Fitur-Fitur :
 1. Register/login
