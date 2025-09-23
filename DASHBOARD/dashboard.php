@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user'])) {
+if (
+  !isset($_SESSION['user']) ||
+  !is_array($_SESSION['user']) ||
+  !isset($_SESSION['user']['fullname'])
+  ) {
   if (isset($_COOKIE['user']) && isset($_COOKIE['fullname'])) {
     $_SESSION['user'] = [
       'fullname' => $_COOKIE['fullname'],
@@ -46,7 +50,17 @@ $user = $_SESSION['user'];
       </form>
       <div class="profile">
         <i class="bi bi-person-circle"></i>
-        <span><?php echo htmlspecialchars($user); ?></span>
+        <span>
+
+          <?php
+          if (is_array($user) && isset($user['fullname'])) {
+            echo htmlspecialchars($user['fullname']);
+          } else {
+            echo 'Guest';
+          }
+          ?>
+
+        </span>
       </div>
       <form action="/PEMWEB---TUGAS-AKHIR/logout.php" method="POST">
         <button type="submit" class="btn-logout">
@@ -110,14 +124,14 @@ $user = $_SESSION['user'];
     </section>
 
     <section class="page-section brand-section">
-        <h2 class="section-title">Brand Teratas</h2>
-        <div class="brand-logos">
-            <img src="https://placehold.co/150x60/f0f0f0/999?text=NIKE" alt="Nike">
-            <img src="https://placehold.co/150x60/f0f0f0/999?text=ADIDAS" alt="Adidas">
-            <img src="https://placehold.co/150x60/f0f0f0/999?text=PUMA" alt="Puma">
-            <img src="https://placehold.co/150x60/f0f0f0/999?text=VANS" alt="Vans">
-            <img src="https://placehold.co/150x60/f0f0f0/999?text=CONVERSE" alt="Converse">
-        </div>
+      <h2 class="section-title">Brand Teratas</h2>
+      <div class="brand-logos">
+        <img src="https://placehold.co/150x60/f0f0f0/999?text=NIKE" alt="Nike">
+        <img src="https://placehold.co/150x60/f0f0f0/999?text=ADIDAS" alt="Adidas">
+        <img src="https://placehold.co/150x60/f0f0f0/999?text=PUMA" alt="Puma">
+        <img src="https://placehold.co/150x60/f0f0f0/999?text=VANS" alt="Vans">
+        <img src="https://placehold.co/150x60/f0f0f0/999?text=CONVERSE" alt="Converse">
+      </div>
     </section>
 
   </main>
@@ -130,4 +144,5 @@ $user = $_SESSION['user'];
   </footer>
 
 </body>
+
 </html>
