@@ -12,22 +12,22 @@
     <div class="card">
       <h2>Buat Akun Baru</h2>
 
-      <form id="registerForm">
+      <form id="registerForm" action="proses_register.php" method="POST">
         <div class="input-group">
           <label>Nama Lengkap</label>
-          <input type="text" placeholder="Nama lengkap" required>
+          <input type="text" name="fullname" placeholder="Nama lengkap" required>
         </div>
         <div class="input-group">
           <label>Email</label>
-          <input type="email" id="email" placeholder="example@gmail.com" required>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
         </div>
         <div class="input-group">
           <label>No. Whatsapp</label>
-          <input type="text" placeholder="No. whatsapp" required>
+          <input type="text" name="whatsapp" placeholder="No. whatsapp" required>
         </div>
         <div class="input-group">
           <label>Password</label>
-          <input type="password" id="registerPassword" placeholder="Password" required>
+          <input type="password" id="registerPassword" name="password" placeholder="Password" required>
           <span class="password-toggle" onclick="togglePassword('registerPassword')"></span>
         </div>
         <div class="checkbox">
@@ -40,6 +40,6 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
 </body>
 </html>

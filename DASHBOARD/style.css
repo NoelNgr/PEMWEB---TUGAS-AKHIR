@@ -8,12 +8,13 @@ body {
 
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding: 20px 50px;
   background-color: white;
   box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
+
 
 header .logo {
   display: flex;
@@ -23,6 +24,7 @@ header .logo {
   color: #3a3aeb;
 }
 
+
 header nav a {
   margin: 0 15px;
   text-decoration: none;
@@ -30,14 +32,22 @@ header nav a {
   font-size: 14px;
 }
 
+
 header nav a.active {
   color: #3a3aeb;
   font-weight: bold;
 }
 
+.d-flex{
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
 header .profile {
   color: #3a3aeb;
   font-size: 14px;
+  
 }
 
 .container {

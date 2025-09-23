@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,18 +8,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
 
   <div class="container">
     <div class="card">
       <h2>Login</h2>
-      <form id="loginForm">
+      <form id="loginForm" action="proses_login.php" method="POST">
         <div class="input-group">
           <label>Email</label>
-          <input type="email" id="email" placeholder="example@gmail.com" required>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
         </div>
         <div class="input-group">
           <label>Password</label>
-          <input type="password" id="loginPassword" placeholder="Password" required>
+          <input type="password" id="loginPassword" name="password" placeholder="Password" required>
           <span class="password-toggle" onclick="togglePassword('loginPassword')"></span>
         </div>
         <div class="checkbox">
@@ -37,6 +39,6 @@
     
   </div>
 
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
 </body>
 </html>
