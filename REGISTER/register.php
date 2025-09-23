@@ -3,26 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DagangIN - Register</title>
+  <title>KALC3R - Register</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">DagangIN</div>
-    <nav>
-      <a href="login.html">Beranda</a>
-      <a href="#">Dashboard Saya</a>
-      <a href="#">Produk Saya</a>
-      <a href="#">Bootcamp Bisnis</a>
-      <a href="#">Pesanan</a>
-    </nav>
-    <div class="profile">Profil Saya</div>
-  </header>
 
   <div class="container">
     <div class="card">
       <h2>Buat Akun Baru</h2>
-      <p>Sudah punya akun? <a href="login.html" style="color:#3aadeb;">Login</a></p>
 
       <form id="registerForm">
         <div class="input-group">
@@ -31,7 +19,7 @@
         </div>
         <div class="input-group">
           <label>Email</label>
-          <input type="email" placeholder="youremail@yahoo.com" required>
+          <input type="email" id="email" placeholder="example@gmail.com" required>
         </div>
         <div class="input-group">
           <label>No. Whatsapp</label>
@@ -44,10 +32,11 @@
         </div>
         <div class="checkbox">
           <input type="checkbox" required>
-          <label>Saya memahami dan menyetujui <a href="#">DagangIN Terms of Service</a></label>
+          <label>Saya memahami dan menyetujui <a href="#">KALC3R Terms of Service</a></label>
         </div>
         <button type="submit" class="btn">Daftar Sekarang</button>
       </form>
+      <p>Sudah punya akun? <a href="/PEMWEB---TUGAS-AKHIR/LOGIN/login.php" style="color:#3aadeb;">Login</a></p>
     </div>
   </div>
 
