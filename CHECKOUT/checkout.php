@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Cek apakah keranjang kosong
 if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
     echo "<script>alert('Keranjang belanja kosong!'); window.location.href='../DASHBOARD/dashboard.php';</script>";
     exit();
@@ -10,7 +9,7 @@ if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
 $cart = $_SESSION['cart'];
 $total = 0;
 foreach ($cart as $item) {
-    // Ubah sesuai struktur dari cart.php
+    
     $total += $item['price'] * ($item['qty'] ?? 1);
 }
 ?>

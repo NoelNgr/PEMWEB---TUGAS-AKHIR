@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Inisialisasi cart kalau belum ada
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
@@ -14,7 +13,6 @@ if (isset($_POST['add_to_cart'])) {
         'qty' => 1
     ];
 
-    // Cek apakah produk sudah ada
     $found = false;
     foreach ($_SESSION['cart'] as &$item) {
         if ($item['name'] === $product['name']) {
@@ -39,10 +37,5 @@ if (isset($_GET['remove'])) {
     }
 }
 
-// Redirect balik ke dashboard
-header("Location: dashboard.php");
-<<<<<<< HEAD
+header("Location: /PEMWEB---TUGAS-AKHIR/DASHBOARD/dashboard.php");
 exit();
-=======
-exit();
->>>>>>> 3002a57dfa0314eed99dbfdb793fbbabd27792a0

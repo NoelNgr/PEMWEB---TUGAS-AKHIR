@@ -101,5 +101,61 @@
         ],
         "total": 3300000,
         "tanggal": "2025-09-25 05:57:41"
+    },
+    {
+        "nama": "Samuel Aryasatya W",
+        "alamat": "Jalan iso wae",
+        "nohp": "0813258343424",
+        "metode": "va",
+        "cart": [
+            {
+                "name": "Adidas Ultraboost",
+                "price": 3300000,
+                "brand": "Adidas",
+                "qty": 1
+            },
+            {
+                "name": "Vans Old Skool",
+                "price": 1099000,
+                "brand": "Vans",
+                "qty": 1
+            }
+        ],
+        "total": 4399000,
+        "tanggal": "2025-09-28 09:09:05"
+    },
+    {
+        "nama": "Samuel Aryasatya W",
+        "alamat": "dwasdwasd",
+        "nohp": "424242452521",
+        "metode": "va",
+        "cart": [
+            {
+                "name": "Vans Old Skool",
+                "price": 1099000,
+                "brand": "Vans",
+                "qty": 1
+            },
+            {
+                "name": "New Balance 550",
+                "price": 2099000,
+                "brand": "New Balance",
+                "qty": 1
+            },
+            {
+                "name": "Adidas Ultraboost",
+                "price": 3300000,
+                "brand": "Adidas",
+                "qty": 1
+            },
+            {
+                "name": "Nike Air Force 1",
+                "price": 1729000,
+                "brand": "Nike",
+                "qty": 1
+            }
+        ],
+        "total": 8227000,
+        "tanggal": "2025-09-28 09:17:14"
     }
 ]
