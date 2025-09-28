@@ -41,4 +41,8 @@ if (isset($_GET['remove'])) {
 
 // Redirect balik ke dashboard
 header("Location: dashboard.php");
+<<<<<<< HEAD
 exit();
+=======
+exit();
+>>>>>>> 3002a57dfa0314eed99dbfdb793fbbabd27792a0

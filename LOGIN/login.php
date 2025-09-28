@@ -1,5 +1,8 @@
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3002a57dfa0314eed99dbfdb793fbbabd27792a0
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -35,7 +38,11 @@
         <button class="social-btn">Masuk dengan Facebook</button>
       </div>
       <p style="font-size:12px; color:#888;">Atau Buat Akun</p>
+<<<<<<< HEAD
       <p>Belum memiliki akun? <a href="../REGISTER/register.php" style="color:#3aadeb;">Daftar</a></p>
+=======
+      <p>Belum memiliki akun? <a href="/PEMWEB---TUGAS-AKHIR/REGISTER/register.php" style="color:#3aadeb;">Daftar</a></p>
+>>>>>>> 3002a57dfa0314eed99dbfdb793fbbabd27792a0
     </div>
     
   </div>

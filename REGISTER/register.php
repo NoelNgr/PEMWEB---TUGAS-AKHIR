@@ -36,7 +36,11 @@
         </div>
         <button type="submit" class="btn">Daftar Sekarang</button>
       </form>
+<<<<<<< HEAD
       <p>Sudah punya akun? <a href="../LOGIN/login.php" style="color:#3aadeb;">Login</a></p>
+=======
+      <p>Sudah punya akun? <a href="/PEMWEB---TUGAS-AKHIR/LOGIN/login.php" style="color:#3aadeb;">Login</a></p>
+>>>>>>> 3002a57dfa0314eed99dbfdb793fbbabd27792a0
     </div>
   </div>
 
