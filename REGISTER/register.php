@@ -3,54 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DagangIN - Register</title>
+  <title>KALC3R - Register</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">DagangIN</div>
-    <nav>
-      <a href="login.html">Beranda</a>
-      <a href="#">Dashboard Saya</a>
-      <a href="#">Produk Saya</a>
-      <a href="#">Bootcamp Bisnis</a>
-      <a href="#">Pesanan</a>
-    </nav>
-    <div class="profile">Profil Saya</div>
-  </header>
 
   <div class="container">
     <div class="card">
       <h2>Buat Akun Baru</h2>
-      <p>Sudah punya akun? <a href="login.html" style="color:#3aadeb;">Login</a></p>
 
-      <form id="registerForm">
+      <form id="registerForm" action="proses_register.php" method="POST">
         <div class="input-group">
           <label>Nama Lengkap</label>
-          <input type="text" placeholder="Nama lengkap" required>
+          <input type="text" name="fullname" placeholder="Nama lengkap" required>
         </div>
         <div class="input-group">
           <label>Email</label>
-          <input type="email" placeholder="youremail@yahoo.com" required>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
         </div>
         <div class="input-group">
           <label>No. Whatsapp</label>
-          <input type="text" placeholder="No. whatsapp" required>
+          <input type="text" name="whatsapp" placeholder="No. whatsapp" required>
         </div>
         <div class="input-group">
           <label>Password</label>
-          <input type="password" id="registerPassword" placeholder="Password" required>
+          <input type="password" id="registerPassword" name="password" placeholder="Password" required>
           <span class="password-toggle" onclick="togglePassword('registerPassword')"></span>
         </div>
         <div class="checkbox">
           <input type="checkbox" required>
-          <label>Saya memahami dan menyetujui <a href="#">DagangIN Terms of Service</a></label>
+          <label>Saya memahami dan menyetujui <a href="#">KALC3R Terms of Service</a></label>
         </div>
         <button type="submit" class="btn">Daftar Sekarang</button>
       </form>
+      <p>Sudah punya akun? <a href="../LOGIN/login.php" style="color:#3aadeb;">Login</a></p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
 </body>
 </html>
