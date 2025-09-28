@@ -16,7 +16,7 @@ if($fullname && $email && $whatsapp && $password){
     setcookie('user', $email, time() + 3600, '/');
     setcookie('fullname', $fullname, time() + 3600, '/');
     setcookie('whatsapp', $whatsapp, time() + 3600, '/');
-    header('Location: /PEMWEB---TUGAS-AKHIR/LOGIN/login.php');
+    echo "<script>alert('Registrasi berhasil, silakan login.'); window.location.href='../LOGIN/login.php';</script>";
     exit();
 } else {
     echo "<script>alert('Registrasi gagal, silakan coba lagi.'); window.location.href='register.php';</script>";

@@ -34,7 +34,7 @@
         <button class="social-btn">Masuk dengan Facebook</button>
       </div>
       <p style="font-size:12px; color:#888;">Atau Buat Akun</p>
-      <p>Belum memiliki akun? <a href="/PEMWEB---TUGAS-AKHIR/REGISTER/register.php" style="color:#3aadeb;">Daftar</a></p>
+      <p>Belum memiliki akun? <a href="../REGISTER/register.php" style="color:#3aadeb;">Daftar</a></p>
     </div>
     
   </div>
