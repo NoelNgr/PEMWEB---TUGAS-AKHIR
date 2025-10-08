@@ -83,10 +83,12 @@ if (isset($_GET['remove'])) {
           <i class="bi bi-cart"></i> Keranjang (<?php echo count($_SESSION['cart']); ?>)
         </button>
       </div>
-      <div class="profile">
-        <a href="profile.php">
-        <i class="bi bi-person-circle"></i>
-        <span><?php echo htmlspecialchars($user['fullname']); ?></span>
+      <div class="profile" style="display:flex;align-items:center;gap:8px;">
+        <a href="profile.php" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
+          <img src="uploads/<?php echo isset($_SESSION['foto_profil']) ? htmlspecialchars($_SESSION['foto_profil']) : 'default.png'; ?>"
+               alt="Foto Profil"
+               style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #3aadeb;">
+          <span><?php echo htmlspecialchars($user['fullname']); ?></span>
         </a>
       </div>
       <form action="/PEMWEB---TUGAS-AKHIR/logout.php" method="POST">
@@ -250,8 +252,8 @@ if (isset($_GET['remove'])) {
       <?php endif; ?>
     </div>
 
-  </div>
+</body>>
   <script src="dashboard.js"></script>
-</body>
+</html>
 
 </html>
