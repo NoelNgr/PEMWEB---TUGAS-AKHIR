@@ -84,8 +84,10 @@ if (isset($_GET['remove'])) {
         </button>
       </div>
       <div class="profile">
+        <a href="profile.php">
         <i class="bi bi-person-circle"></i>
         <span><?php echo htmlspecialchars($user['fullname']); ?></span>
+        </a>
       </div>
       <form action="/PEMWEB---TUGAS-AKHIR/logout.php" method="POST">
         <button type="submit" class="btn-logout">

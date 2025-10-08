@@ -13,7 +13,7 @@
   <div class="container">
     <div class="card">
       <h2>Login</h2>
-      <form id="loginForm" action="proses_login.php" method="POST">
+      <form id="loginForm" action="proses_login.php" method="POST" enctype="multipart/form-data">
         <div class="input-group">
           <label>Email</label>
           <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
@@ -38,7 +38,6 @@
     </div>
     
   </div>
-
   <!-- <script src="script.js"></script> -->
 </body>
 </html>
