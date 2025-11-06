@@ -2,25 +2,12 @@
 session_start();
 
 // Cek login
-if (
-  !isset($_SESSION['user']) ||
-  !is_array($_SESSION['user']) ||
-  !isset($_SESSION['user']['fullname'])
-) {
-  if (isset($_COOKIE['user']) && isset($_COOKIE['fullname'])) {
-    $_SESSION['user'] = [
-      'fullname' => $_COOKIE['fullname'],
-      'email' => $_COOKIE['user'],
-      'whatsapp' => $_COOKIE['whatsapp'] ?? ''
-    ];
-  } else {
-    // Arahkan ke halaman login jika tidak ada sesi atau cookie
-    header('Location: /PEMWEB---TUGAS-AKHIR/LOGIN/login.php');
-    exit();
-  }
+if (!isset($_SESSION['user'])) {
+    header("Location: ../LOGIN/login.php");
+} else {
+    $user = $_SESSION['user'];
 }
 
-$user = $_SESSION['user'];
 
 // Inisialisasi keranjang jika belum ada
 if (!isset($_SESSION['cart'])) {
