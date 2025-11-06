@@ -16,15 +16,15 @@
       <form id="loginForm" action="proses_login.php" method="POST" enctype="multipart/form-data">
         <div class="input-group">
           <label>Email</label>
-          <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com" >
         </div>
         <div class="input-group">
           <label>Password</label>
-          <input type="password" id="loginPassword" name="password" placeholder="Password" required>
+          <input type="password" id="loginPassword" name="password" placeholder="Password" >
           <span class="password-toggle" onclick="togglePassword('loginPassword')"></span>
         </div>
         <div class="checkbox">
-          <input type="checkbox" required>
+          <input type="checkbox" >
           <label>Saya memahami dan menyetujui <a href="#">KALC3R Terms of Service</a></label>
         </div>
         <button type="submit" class="btn">Login</button>
