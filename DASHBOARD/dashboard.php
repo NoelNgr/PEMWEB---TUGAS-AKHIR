@@ -1,20 +1,98 @@
 <?php
 session_start();
 
-// Cek login
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['email'])) {
     header("Location: ../LOGIN/login.php");
 } else {
-    $user = $_SESSION['user'];
+    $fullname = $_SESSION['fullname'];
+}
+
+// 2. INISIALISASI CART
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = [];
+}
+
+// 3. ARRAY PRODUK (TARO DI SINI ✅)
+$produkTerlaris = [
+    [
+        'name' => 'Nike Air Force 1',
+        'price' => 1729000,
+        'brand' => 'Nike',
+        'image' => 'https://placehold.co/400x300/EAF2F8/333?text=Nike+Air'
+    ],
+    [
+        'name' => 'Adidas Ultraboost',
+        'price' => 3300000,
+        'brand' => 'Adidas',
+        'image' => 'https://placehold.co/400x300/E8F6F3/333?text=Adidas+Runner'
+    ],
+    [
+        'name' => 'Vans Old Skool',
+        'price' => 1099000,
+        'brand' => 'Vans',
+        'image' => 'https://placehold.co/400x300/FEF9E7/333?text=Vans+Classic'
+    ],
+    [
+        'name' => 'Puma Suede Classic',
+        'price' => 899000,
+        'brand' => 'Puma',
+        'image' => 'https://placehold.co/400x300/FFF5E5/333?text=Puma+Suede'
+    ],
+    [
+        'name' => 'Converse Chuck Taylor',
+        'price' => 799000,
+        'brand' => 'Converse',
+        'image' => 'https://placehold.co/400x300/F0F0F0/333?text=Converse+All+Star'
+    ],
+    [
+        'name' => 'Reebok Classic Leather',
+        'price' => 1299000,
+        'brand' => 'Reebok',
+        'image' => 'https://placehold.co/400x300/EDEDED/333?text=Reebok+Classic'
+    ],
+    [
+        'name' => 'Asics Gel-Kayano',
+        'price' => 2499000,
+        'brand' => 'Asics',
+        'image' => 'https://placehold.co/400x300/DFF0D8/333?text=Asics+Gel-Kayano'
+    ],
+    [
+        'name' => 'New Balance 550',
+        'price' => 2099000,
+        'brand' => 'New Balance',
+        'image' => 'https://placehold.co/400x300/F5EEF8/333?text=New+Balance'
+    ]
+];
+
+// 4. LOGIKA TAMBAH CART
+if (isset($_POST['add_to_cart'])) {
+    $product = [
+        'name' => $_POST['product_name'],
+        'price' => (int)$_POST['product_price'],
+        'brand' => $_POST['product_brand'],
+        'qty' => 1
+    ];
+    $_SESSION['cart'][] = $product;
+    header("Location: dashboard.php"); 
+    exit();
+}
+
+// 5. LOGIKA REMOVE CART
+if (isset($_GET['remove'])) {
+    $idx = (int)$_GET['remove'];
+    if (isset($_SESSION['cart'][$idx])) {
+        unset($_SESSION['cart'][$idx]);
+        $_SESSION['cart'] = array_values($_SESSION['cart']);
+    }
+    header("Location: dashboard.php");
+    exit();
 }
 
 
-// Inisialisasi keranjang jika belum ada
 if (!isset($_SESSION['cart'])) {
   $_SESSION['cart'] = [];
 }
 
-// Logika untuk menambah item ke keranjang
 if (isset($_POST['add_to_cart'])) {
   $product = [
     'name' => $_POST['product_name'],
@@ -23,20 +101,20 @@ if (isset($_POST['add_to_cart'])) {
     'qty' => 1
   ];
   $_SESSION['cart'][] = $product;
-  header("Location: dashboard.php"); // Redirect untuk mencegah duplikasi saat refresh
+  header("Location: dashboard.php"); 
   exit();
 }
 
-// Logika untuk menghapus item dari keranjang
 if (isset($_GET['remove'])) {
   $idx = (int)$_GET['remove'];
   if (isset($_SESSION['cart'][$idx])) {
     unset($_SESSION['cart'][$idx]);
-    $_SESSION['cart'] = array_values($_SESSION['cart']); // Atur ulang indeks array
+    $_SESSION['cart'] = array_values($_SESSION['cart']); 
   }
   header("Location: dashboard.php");
   exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,10 +150,13 @@ if (isset($_GET['remove'])) {
       </div>
       <div class="profile" style="display:flex;align-items:center;gap:8px;">
         <a href="profile.php" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-          <img src="uploads/<?php echo isset($_SESSION['foto_profil']) ? htmlspecialchars($_SESSION['foto_profil']) : 'default.png'; ?>"
-               alt="Foto Profil"
-               style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #3aadeb;">
-          <span><?php echo htmlspecialchars($user['fullname']); ?></span>
+          <img 
+            src="uploads/<?php echo isset($_SESSION['foto_profil']) && $_SESSION['foto_profil'] !== '' 
+              ? htmlspecialchars($_SESSION['foto_profil']) 
+              : 'defaultpicture.jpg'; ?>" 
+            alt="Foto Profil"
+            style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #3aadeb;">
+          <span><?php echo htmlspecialchars($_SESSION['fullname']); ?></span>
         </a>
       </div>
       <form action="/PEMWEB---TUGAS-AKHIR/logout.php" method="POST">
@@ -114,63 +195,27 @@ if (isset($_GET['remove'])) {
     </section>
 
     <section class="page-section">
-      <h2 class="section-title">Produk Terlaris</h2>
-      <div class="product-grid">
+    <h2 class="section-title">Produk Terlaris</h2>
+    <div class="product-grid">
+
+      <?php foreach ($produkTerlaris as $item): ?>
         <div class="product-card">
-          <img src="https://placehold.co/400x300/EAF2F8/333?text=Nike+Air" alt="Sepatu Nike Air">
-          <h3>Nike Air Force 1</h3>
-          <p class="price">Rp 1.729.000</p>
+          <img src="<?php echo $item['image']; ?>" alt="<?php echo $item['name']; ?>">
+          <h3><?php echo $item['name']; ?></h3>
+          <p class="price">Rp <?php echo number_format($item['price'], 0, ',', '.'); ?></p>
+
           <form method="POST">
-            <input type="hidden" name="product_name" value="Nike Air Force 1">
-            <input type="hidden" name="product_price" value="1729000">
-            <input type="hidden" name="product_brand" value="Nike">
-            <button type="submit" name="add_to_cart" class="btn btn-primary">
-              <i class="bi bi-cart-plus"></i> Tambah ke Keranjang
-            </button>
+              <input type="hidden" name="product_name" value="<?php echo $item['name']; ?>">
+              <input type="hidden" name="product_price" value="<?php echo $item['price']; ?>">
+              <input type="hidden" name="product_brand" value="<?php echo $item['brand']; ?>">
+              <button type="submit" name="add_to_cart" class="btn btn-primary">
+                <i class="bi bi-cart-plus"></i> Tambah ke Keranjang
+              </button>
           </form>
         </div>
-        <div class="product-card">
-          <img src="https://placehold.co/400x300/E8F6F3/333?text=Adidas+Runner" alt="Sepatu Adidas Runner">
-          <h3>Adidas Ultraboost</h3>
-          <p class="price">Rp 3.300.000</p>
-          <form method="POST">
-            <input type="hidden" name="product_name" value="Adidas Ultraboost">
-            <input type="hidden" name="product_price" value="3300000">
-            <input type="hidden" name="product_brand" value="Adidas">
-            <button type="submit" name="add_to_cart" class="btn btn-primary">
-              <i class="bi bi-cart-plus"></i> Tambah ke Keranjang
-            </button>
-          </form>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/400x300/FEF9E7/333?text=Vans+Classic" alt="Sepatu Vans Classic">
-          <h3>Vans Old Skool</h3>
-          <p class="price">Rp 1.099.000</p>
-          <form method="POST">
-            <input type="hidden" name="product_name" value="Vans Old Skool">
-            <input type="hidden" name="product_price" value="1099000">
-            <input type="hidden" name="product_brand" value="Vans">
-            <button type="submit" name="add_to_cart" class="btn btn-primary">
-              <i class="bi bi-cart-plus"></i> Tambah ke Keranjang
-            </button>
-          </form>
-        </div>
-        <div class="product-card">
-          <img src="https://placehold.co/400x300/F5EEF8/333?text=New+Balance" alt="Sepatu New Balance">
-          <h3>New Balance 550</h3>
-          <p class="price">Rp 2.099.000</p>
-          <form method="POST">
-            <input type="hidden" name="product_name" value="New Balance 550">
-            <input type="hidden" name="product_price" value="2099000">
-            <input type="hidden" name="product_brand" value="New Balance">
-            <button type="submit" name="add_to_cart" class="btn btn-primary">
-              <i class="bi bi-cart-plus"></i> Tambah ke Keranjang
-            </button>
-          </form>
-        </div>
+      <?php endforeach; ?>
       </div>
     </section>
-
     <section class="page-section brand-section">
       <h2 class="section-title">Brand Teratas</h2>
       <div class="brand-logos">
@@ -238,8 +283,7 @@ if (isset($_GET['remove'])) {
         </div>
       <?php endif; ?>
     </div>
-
-</body>>
+</body>
   <script src="dashboard.js"></script>
 </html>
 

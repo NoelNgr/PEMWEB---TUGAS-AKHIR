@@ -30,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $orders[] = $order;
     file_put_contents('orders.json', json_encode($orders, JSON_PRETTY_PRINT));
 
-    // Kosongkan keranjang
     unset($_SESSION['cart']);
 ?>
 

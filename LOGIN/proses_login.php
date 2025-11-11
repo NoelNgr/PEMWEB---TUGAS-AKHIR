@@ -2,7 +2,6 @@
 session_start();
 include '../conn.php';
 
-
 $email = $_POST['email'];
 $password = $_POST['password'];
 
@@ -15,10 +14,12 @@ $query = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
 $result = mysqli_query($conn, $query);
 
 if (mysqli_num_rows($result) == 1) {
-    $_SESSION['email'] = $email;
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION['email'] = $row['email'];       // tetap simpan email
+    $_SESSION['fullname'] = $row['fullname']; // tambahkan fullname
     $_SESSION['status'] = "login";
-    setcookie('user', $email, time() + 3600, '/');
+    
     echo "<script>alert('Login berhasil!'); window.location='../DASHBOARD/dashboard.php';</script>";
 } else {
-     echo "<script>alert('Email atau password tidak ditemukan'); window.location='login.php';</script>";
+    echo "<script>alert('Email atau password salah!'); window.location='login.php';</script>";
 }

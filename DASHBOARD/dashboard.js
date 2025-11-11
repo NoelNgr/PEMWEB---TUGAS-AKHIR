@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const cartDrawer = document.getElementById('cartDrawer');
 
   if (cartButton && closeCartButton && cartDrawer) {
-    
-    
     cartButton.addEventListener('click', function () {
       cartDrawer.classList.add('show');
     });

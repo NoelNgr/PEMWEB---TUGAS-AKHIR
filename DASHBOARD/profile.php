@@ -5,7 +5,7 @@ $user = $_SESSION['user'] ?? [
   'email' => '',
   'whatsapp' => ''
 ];
-$foto = $_SESSION['foto_profil'] ?? 'default.png';
+$foto = $_SESSION['foto_profil'] ?? 'defaultpicture.jpg';
 ?>
 <!DOCTYPE html>
 <html lang="id">
