@@ -114,7 +114,6 @@ if (isset($_GET['remove'])) {
   header("Location: dashboard.php");
   exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
