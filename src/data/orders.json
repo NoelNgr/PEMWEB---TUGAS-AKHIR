@@ -377,5 +377,24 @@
         ],
         "total": 1299000,
         "tanggal": "2025-11-12 12:48:44"
+    },
+    {
+        "nama": "Ismail",
+        "alamat": "DIJAJNDJNWKJADLADLKAWD",
+        "nohp": "081326069359",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "3",
+                "name": "Vans Old Skool",
+                "price": 1099000,
+                "brand": "Vans",
+                "warna": "Hitam-White",
+                "ukuran": "40",
+                "qty": 1
+            }
+        ],
+        "total": 1099000,
+        "tanggal": "2025-11-12 13:41:59"
     }
 ]
