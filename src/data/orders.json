@@ -301,5 +301,81 @@
         ],
         "total": 3198000,
         "tanggal": "2025-11-12 07:37:08"
+    },
+    {
+        "nama": "Samuel ",
+        "alamat": "Breeze Residence blok D/06, Sidoarjo, Jawa Timur\r\nBangkit Boarding House, Kota Malang, Jawa Timur",
+        "nohp": "081234567891",
+        "metode": "va",
+        "cart": [
+            {
+                "id": "8",
+                "name": "New Balance 550",
+                "price": 2099000,
+                "brand": "New Balance",
+                "warna": "Putih-Hijau",
+                "ukuran": "39",
+                "qty": 1
+            }
+        ],
+        "total": 2099000,
+        "tanggal": "2025-11-12 12:43:26"
+    },
+    {
+        "nama": "Samuel Aryasatya Widiono",
+        "alamat": "Breeze Residence blok D/06, Sidoarjo, Jawa Timur\r\nBangkit Boarding House, Kota Malang, Jawa Timur",
+        "nohp": "087887523550",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "1",
+                "name": "Nike Air Force 1",
+                "price": 1729000,
+                "brand": "Nike",
+                "warna": "Hitam",
+                "ukuran": "41",
+                "qty": 1
+            }
+        ],
+        "total": 1729000,
+        "tanggal": "2025-11-12 12:45:13"
+    },
+    {
+        "nama": "Samuel",
+        "alamat": "Breeze Residence blok D/06, Sidoarjo, Jawa Timur\r\nBangkit Boarding House, Kota Malang, Jawa Timur",
+        "nohp": "081326069359",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "8",
+                "name": "New Balance 550",
+                "price": 2099000,
+                "brand": "New Balance",
+                "warna": "Putih-Hijau",
+                "ukuran": "40",
+                "qty": 1
+            }
+        ],
+        "total": 2099000,
+        "tanggal": "2025-11-12 12:47:13"
+    },
+    {
+        "nama": "Samuel",
+        "alamat": "Breeze Residence blok D/06, Sidoarjo, Jawa Timur\r\nBangkit Boarding House, Kota Malang, Jawa Timur",
+        "nohp": "087887523550",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "6",
+                "name": "Reebok Classic Leather",
+                "price": 1299000,
+                "brand": "Reebok",
+                "warna": "Putih",
+                "ukuran": "41",
+                "qty": 1
+            }
+        ],
+        "total": 1299000,
+        "tanggal": "2025-11-12 12:48:44"
     }
 ]

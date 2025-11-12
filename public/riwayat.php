@@ -40,28 +40,32 @@ $userOrders = array_filter($orders, fn($order) => $order['nama'] === $fullname);
 
 <header>
     <div class="header-left">
-        <div class="logo">KALC3R</div>
-        <nav>
-            <a href="dashboard.php">Beranda</a>
-            <a href="#">Produk</a>
-            <a href="#">Pre-order</a>
-            <a href="#" class="active">Riwayat</a>
-        </nav>
+      <div class="logo">KALC3R</div>
+      <nav>
+        <a href="dashboard.php">Beranda</a>
+        <a href="#">Produk</a>
+        <a href="#">Pre-order</a>
+        <a href="" class="active">Riwayat Pesanan</a>
+      </nav>
     </div>
     <div class="header-right">
+      
+      <div class="profile">
         <a href="profile.php" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-            <img src="<?php echo htmlspecialchars($fotoProfilPath); ?>" 
-                 alt="Foto Profil"
-                 style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #3aadeb;">
-            <span><?php echo htmlspecialchars($fullname); ?></span>
+          <img 
+            src="<?php echo htmlspecialchars($fotoProfilPath); ?>" 
+            alt="Foto Profil"
+            style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #3aadeb;">
+          <span><?php echo htmlspecialchars($fullname); ?></span>
         </a>
-        <form action="../src/actions/logout.php" method="POST">
-            <button type="submit" class="btn-logout">
-                <i class="bi bi-box-arrow-right"></i>
-            </button>
-        </form>
+      </div>
+      <form action="../src/actions/logout.php" method="POST">
+        <button type="submit" class="btn-logout">
+          <i class="bi bi-box-arrow-right"></i>
+        </button>
+      </form>
     </div>
-</header>
+  </header>
 
 <main>
     <section class="riwayat-section">

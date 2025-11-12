@@ -6,30 +6,80 @@ body {
 }
 
 header {
-  background: #ffffff;
   display: flex;
   justify-content: space-between;
-  padding: 12px 40px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   align-items: center;
+  padding: 15px 50px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: -webkit-fill-available;
 }
 
-.logo {
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+header .logo {
   font-weight: bold;
-  color: #3aadeb;
-  font-size: 1.4rem;
+  font-size: 24px;
+  color: #3a3aeb;
 }
 
-nav a {
-  margin: 0 12px;
+header nav a {
+  margin: 0 10px;
+  color: #555;
+  font-size: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
   text-decoration: none;
-  color: #333;
-  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
-nav a.active {
-  color: #3aadeb;
-  font-weight: 600;
+header nav a:hover {
+  color: #3a3aeb;
+}
+
+header nav a.active {
+  color: #3a3aeb;
+  font-weight: bold;
+  border-bottom-color: #3a3aeb;
+}
+
+header .profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-size: 15px;
+  white-space: nowrap; 
+}
+
+header .profile .bi {
+  font-size: 22px;
+  color: #3a3aeb;
+}
+
+.btn-logout {
+  background-color: transparent;
+  color: #d32f2f;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #fdeeee;
 }
 
 .riwayat-section {
