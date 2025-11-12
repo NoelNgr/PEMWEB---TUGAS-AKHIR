@@ -1,0 +1,30 @@
+[
+    {
+        "product_id": "<br \/>\r\n<b>Warning<\/b>:  Undefined variable $item in <b>C:\\xampp\\htdocs\\Tugas\\PEMWEB---TUGAS-AKHIR\\public\\product_detail.php<\/b> on line <b>119<\/b><br \/>\r\n<br \/>\r\n<b>Warning<\/b>:  Trying to access array offset on value of type null in <b>C:\\xampp\\htdocs\\Tugas\\PEMWEB---TUGAS-AKHIR\\public\\product_detail.php<\/b> on line <b>119<\/b><br \/>\r\n",
+        "user": "Azharus Tsani",
+        "review": "bagus",
+        "rating": 5,
+        "date": "2025-11-12 07:21:04"
+    },
+    {
+        "product_id": "<br \/>\r\n<b>Warning<\/b>:  Undefined variable $item in <b>C:\\xampp\\htdocs\\Tugas\\PEMWEB---TUGAS-AKHIR\\public\\product_detail.php<\/b> on line <b>119<\/b><br \/>\r\n<br \/>\r\n<b>Warning<\/b>:  Trying to access array offset on value of type null in <b>C:\\xampp\\htdocs\\Tugas\\PEMWEB---TUGAS-AKHIR\\public\\product_detail.php<\/b> on line <b>119<\/b><br \/>\r\n",
+        "user": "Azharus Tsani",
+        "review": "bagus",
+        "rating": 5,
+        "date": "2025-11-12 07:23:01"
+    },
+    {
+        "product_id": "3",
+        "user": "Azharus Tsani",
+        "review": "kerennn",
+        "rating": 5,
+        "date": "2025-11-12 07:26:20"
+    },
+    {
+        "product_id": "7",
+        "user": "Azharus Tsani",
+        "review": "produknya bagus",
+        "rating": 5,
+        "date": "2025-11-12 07:30:58"
+    }
+]

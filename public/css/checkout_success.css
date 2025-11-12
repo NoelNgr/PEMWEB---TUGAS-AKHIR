@@ -1,0 +1,67 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+.success-container {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.success-icon {
+    color: #28a745;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+h2 {
+    color: #3a3aeb;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+.payment-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: left;
+}
+.payment-info p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+.payment-code {
+    font-size: 20px;
+    font-weight: bold;
+    color: #3a3aeb;
+    padding: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+.back-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #3a3aeb;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+.back-button:hover {
+    background: #2828d0;
+}
+.alert {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 20px 0;
+}

@@ -1,0 +1,201 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f9fafc;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+/* Container utama */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 10%;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-radius: 20px;
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* Gambar produk */
+.product-image-section {
+    flex: 1 1 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+/* Informasi produk */
+.product-info-section {
+    flex: 1 1 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    color: #007bff;
+    font-weight: 700;
+}
+
+.product-brand {
+    color: #666;
+    font-size: 1rem;
+}
+.product-brand span {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Deskripsi */
+.product-description p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Warna */
+.color-options {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.color-item {
+    padding: 8px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.color-item:hover {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Ukuran */
+.size-options {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.size-btn {
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.size-btn:hover {
+    background: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+/* Tombol keranjang */
+.add-cart-btn {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+}
+.add-cart-btn:hover {
+    background: #0056b3;
+    box-shadow: 0 6px 14px rgba(0,86,179,0.4);
+}
+
+/* Review */
+.review-section {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+.review-card {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+.review-rating {
+    color: #ffaa00;
+    margin-left: 5px;
+}
+.review-comment {
+    margin-top: 6px;
+    color: #444;
+    font-size: 0.95rem;
+}
+.no-review {
+    color: #777;
+    font-style: italic;
+}
+
+.option-group {
+    margin-top: 20px;
+}
+
+.option-btn {
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background: #eaeaea;
+}
+
+.option-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.add-cart-btn {
+    display: block;
+    margin-top: 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.add-cart-btn:hover {
+    background: #0056b3;
+}

@@ -1,0 +1,155 @@
+=================================================
+PENJELASAN STRUKTUR FOLDER PROYEK (KALC3RIN)
+=================================================
+
+### Konsep Utama: public/ vs src/
+
+1.  **Folder `public/` (Area Tampilan)**
+    * Ini adalah semua bagian yang diakses langsung oleh browser atau pengguna (user).
+    * Ini adalah "wajah" dari website Anda.
+    * Isinya: Halaman .php yang dilihat user (login.php, dashboard.php), semua file CSS, JS, dan Gambar.
+
+2.  **Folder `src/` (Area Logika)**
+    * Ini adalah "otak" dari website Anda. Area ini TIDAK BOLEH diakses langsung oleh browser.
+    * Isinya: Koneksi database, file pemroses form (actions), dan data internal (data).
+
+### Struktur Folder Proyek
+
+kalcerin_project/
+|
+|--- README.md
+|--- struktur_penjelasan.txt   (File yang sedang Anda baca ini)
+|
+|--- 📂 public/
+|    |
+|    |--- 📂 css/
+|    |    |--- auth.css
+|    |    |--- checkout.css
+|    |    |--- checkout_success.css
+|    |    |--- dashboard.css
+|    |    `--- profile.css
+|    |
+|    |--- 📂 js/
+|    |    |--- auth.js
+|    |    |--- checkout.js
+|    |    `--- dashboard.js
+|    |
+|    |--- 📂 images/
+|    |    `--- (Berisi gambar statis seperti defaultpicture.jpg)
+|    |
+|    |--- 📂 uploads/
+|    |    `--- (Kosong, untuk menyimpan foto profil user)
+|    |
+|    |--- index.php
+|    |--- login.php
+|    |--- register.php
+|    |--- dashboard.php
+|    |--- profile.php
+|    |--- checkout.php
+|    `--- checkout_success.php
+|
+`--- 📂 src/
+     |
+     |--- 📂 actions/
+     |    |--- handle_cart.php
+     |    |--- handle_checkout.php
+     |    |--- handle_login.php
+     |    |--- handle_photo_upload.php
+     |    |--- handle_profile_update.php
+     |    |--- handle_register.php
+     |    `--- logout.php
+     |
+     |--- 📂 data/
+     |    |--- orders.json
+     |    `--- products.php
+     |
+     `--- conn.php
+
+---
+### Rincian Asal-Usul File (Lama -> Baru)
+
+#### 📂 `src/` (Logika Backend)
+
+* **File Baru:** `src/conn.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/conn.php`
+
+* **File Baru:** `src/actions/handle_login.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/LOGIN/proses_login.php`
+
+* **File Baru:** `src/actions/handle_register.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/REGISTER/proses_register.php`
+
+* **File Baru:** `src/actions/handle_profile_update.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/DASHBOARD/update_profile.php`
+
+* **File Baru:** `src/actions/handle_photo_upload.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/DASHBOARD/upload_foto.php`
+
+* **File Baru:** `src/actions/handle_cart.php`
+    * **Asal:** BARU. Logika dari `DASHBOARD/cart.php` dan logika keranjang dari `DASHBOARD/dashboard.php` digabung ke file ini.
+
+* **File Baru:** `src/actions/handle_checkout.php`
+    * **Asal:** BARU. Berisi kode PHP (logika) yang dipisah dari `CHECKOUT/proses_checkout.php`.
+
+* **File Baru:** `src/actions/logout.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/logout.php`
+
+* **File Baru:** `src/data/products.php`
+    * **Asal:** BARU. Berisi array `$produkTerlaris` yang dipindah dari `DASHBOARD/dashboard.php`.
+
+* **File Baru:** `src/data/orders.json`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/CHECKOUT/orders.json`
+
+---
+#### 📂 `public/` (Tampilan / Halaman)
+
+* **File Baru:** `public/index.php`
+    * **Asal:** BARU. Dibuat sebagai gerbang utama.
+
+* **File Baru:** `public/login.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/LOGIN/login.php`
+
+* **File Baru:** `public/register.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/REGISTER/register.php`
+
+* **File Baru:** `public/dashboard.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/DASHBOARD/dashboard.php` (Logika PHP-nya disederhanakan).
+
+* **File Baru:** `public/profile.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/DASHBOARD/profile.php` (CSS dipisah ke file sendiri).
+
+* **File Baru:** `public/checkout.php`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/CHECKOUT/checkout.php`
+
+* **File Baru:** `public/checkout_success.php`
+    * **Asal:** BARU. Berisi kode HTML yang dipisah dari `CHECKOUT/proses_checkout.php`.
+
+---
+#### 📂 `public/css/` (File Tampilan)
+
+* **File Baru:** `public/css/auth.css`
+    * **Asal:** BARU. Gabungan dari `LOGIN/style.css` dan `REGISTER/style.css` (karena isinya identik).
+
+* **File Baru:** `public/css/dashboard.css`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/DASHBOARD/style.css`
+
+* **File Baru:** `public/css/checkout.css`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/CHECKOUT/style.css`
+
+* **File Baru:** `public/css/profile.css`
+    * **Asal:** BARU. Berisi kode CSS yang dipisah dari `DASHBOARD/profile.php`.
+
+* **File Baru:** `public/css/checkout_success.css`
+    * **Asal:** BARU. Berisi kode CSS yang dipisah dari `CHECKOUT/proses_checkout.php`.
+
+---
+#### 📂 `public/js/` (File Interaksi)
+
+* **File Baru:** `public/js/auth.js`
+    * **Asal:** BARU. Dibuat untuk fungsionalitas "Tampilkan/Sembunyikan Password", menggantikan `LOGIN/script.js` dan `REGISTER/script.js` yang lama.
+
+* **File Baru:** `public/js/dashboard.js`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/DASHBOARD/dashboard.js`
+
+* **File Baru:** `public/js/checkout.js`
+    * **Asal:** `PEMWEB---TUGAS-AKHIR/CHECKOUT/script.js`

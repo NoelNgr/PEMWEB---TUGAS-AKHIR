@@ -1,6 +1,0 @@
-Fullname: Djarot | Email: user@gmail.com | WhatsApp: 123456 | Password: 111111
-Fullname: Ahmad | Email: user@gmail.com | WhatsApp: 12345678 | Password: 111111
-Fullname: Adi | Email: user@gmail.com | WhatsApp: 12345678 | Password: 111111
-Fullname: Jono | Email: user@gmail.com | WhatsApp: 1234567 | Password: 111111
-Fullname: user 1 | Email: user@gmail.com | WhatsApp: 111111 | Password: 111111
-Fullname: Samuel | Email: user@gmail.com | WhatsApp: 1234567 | Password: 111111
