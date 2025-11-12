@@ -18,16 +18,19 @@ if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
     
     // Set session
+    $_SESSION['id_pelanggan'] = $row['id_pelanggan'];
     $_SESSION['email'] = $row['email'];
     $_SESSION['fullname'] = $row['fullname'];
     $_SESSION['status'] = "login";
     
     // Simpan data user lengkap ke session
     $_SESSION['user'] = [
+        'id_pelanggan' => $row['id_pelanggan'],
         'fullname' => $row['fullname'],
         'email' => $row['email'],
         'whatsapp' => $row['whatsapp'] ?? ''
     ];
+    setcookie('user', $email, time() + 3600, '/');
     
     // Simpan foto profil ke session jika ada
     if (!empty($row['foto_profil'])) {

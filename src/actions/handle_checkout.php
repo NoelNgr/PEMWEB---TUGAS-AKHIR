@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../../src/conn.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nama = $_POST['nama'] ?? '';
@@ -12,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($cart as $item) {
         $total += (int)$item['price'] * (int)($item['qty'] ?? 1);
     }
+
 
     $order = [
         'nama' => $nama,
@@ -54,5 +56,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 } else {
     header('Location: ../../public/checkout.php');
     exit();
-}
-?>
+} 
+

@@ -21,16 +21,8 @@
           <input type="password" id="loginPassword" name="password" placeholder="Password" required>
           <span class="password-toggle" onclick="togglePassword('loginPassword')">Tampilkan</span>
         </div>
-        <div class="checkbox">
-          <input type="checkbox" id="terms" required>
-          <label for="terms">Saya memahami dan menyetujui <a href="#">KALC3R Terms of Service</a></label>
-        </div>
         <button type="submit" class="btn">Login</button>
       </form>
-      <div class="social-login">
-        <button class="social-btn">Masuk dengan Google</button>
-        <button class="social-btn">Masuk dengan Facebook</button>
-      </div>
       <p style="font-size:12px; color:#888;">Atau Buat Akun</p>
       <p>Belum memiliki akun? <a href="register.php" style="color:#3aadeb;">Daftar</a></p>
     </div>

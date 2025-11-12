@@ -1,0 +1,246 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  width: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: -webkit-fill-available;
+  position: relative;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex: 1;
+  position: relative;
+  z-index: 10;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  flex: 1;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 10;
+  margin-right: 50px;
+}
+
+header .logo {
+  font-weight: bold;
+  font-size: 24px;
+  color: #3a3aeb;
+}
+
+header nav a {
+  margin: 0 10px;
+  color: #555;
+  font-size: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+header nav a:hover {
+  color: #3a3aeb;
+}
+
+header nav a.active {
+  color: #3a3aeb;
+  font-weight: bold;
+  border-bottom-color: #3a3aeb;
+}
+
+header .profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  font-size: 15px;
+  white-space: nowrap; 
+  
+}
+
+header .profile .bi {
+  font-size: 22px;
+  color: #3a3aeb;
+}
+
+
+.btn-logout {
+  background-color: transparent;
+  color: #d32f2f;
+  border: none;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-logout:hover {
+  background-color: #fdeeee;
+}
+
+/* Gabungkan dengan kode CSS header yang sudah ada */
+
+/* Styling untuk Konten Favorit */
+.favorit-content {
+    padding: 30px 50px;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.favorit-content h1 {
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.product-list {
+    display: grid;
+    /* Tampilkan 3-4 kolom, responsif */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+    gap: 30px;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+    border-bottom: 1px solid #eee;
+}
+
+.product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.product-name {
+    font-size: 18px;
+    color: #3a3aeb;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.product-detail {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.product-detail span {
+    font-weight: bold;
+    color: #333;
+}
+
+.remove-form {
+    margin-top: auto; /* Dorong form ke bawah */
+    padding-top: 15px;
+    border-top: 1px dashed #eee;
+}
+
+.btn-remove {
+    width: 100%;
+    padding: 10px;
+    background-color: #dc3545; /* Merah untuk hapus */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.btn-remove:hover {
+    background-color: #c82333;
+}
+
+.empty-message {
+    grid-column: 1 / -1; 
+    text-align: center;
+    color: #777;
+    padding: 50px 0;
+    font-size: 18px;
+}
+
+/* Styling untuk Notifikasi */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.alert.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

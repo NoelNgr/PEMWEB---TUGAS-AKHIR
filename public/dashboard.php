@@ -92,7 +92,6 @@ if (!file_exists($fotoProfilPath) || $fotoProfil == 'defaultpicture.jpg') {
       </nav>
     </div>
     <div class="header-right">
-      
       <form class="search-form" role="search" method="GET" action="dashboard.php">
         <input 
             class="form-control" 
@@ -104,6 +103,13 @@ if (!file_exists($fotoProfilPath) || $fotoProfil == 'defaultpicture.jpg') {
         />
         <i class="bi bi-search"></i>
       </form>
+
+      <div class="wishlist">
+        <a href="favorit.php" class="btn btn-outline-secondary">
+          <i class="bi bi-heart" style="color: red"></i> Favorit
+        </a>
+      </div>
+
       <div class="cart">
         <button id="cartButton" class="btn btn-success">
           <i class="bi bi-cart"></i> Keranjang (<?php echo count($cart); ?>)

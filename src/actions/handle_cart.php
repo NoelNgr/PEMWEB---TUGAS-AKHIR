@@ -12,6 +12,7 @@ if (isset($_POST['add_to_cart'])) {
     $brand = $_POST['product_brand'] ?? '';
     $warna = $_POST['warna'] ?? '';
     $ukuran = $_POST['ukuran'] ?? '';
+    $stok = (int) ($_POST['product_stock'] ?? 0);
     $qty = 1;
 
     // Gabungkan produk yang sama + warna + ukuran

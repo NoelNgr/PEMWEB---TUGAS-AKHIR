@@ -199,3 +199,76 @@ body {
 .add-cart-btn:hover {
     background: #0056b3;
 }
+
+.bx {
+    font-size: 50px;
+    cursor: pointer;
+    position: absolute;
+    right: 5rem;
+}
+
+/* CONTAINER UNTUK TOMBOL FAVORIT DAN KERANJANG */
+.action-buttons {
+    display: flex;
+    gap: 15px; /* Jarak antara tombol favorit dan keranjang */
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Tambahkan margin bawah agar tidak menempel ke ulasan */
+}
+
+/* Tombol Favorit */
+.btn-favorit {
+    background-color: transparent;
+    border: 2px solid #ccc;
+    color: #555;
+    width: 45px; /* Ukuran tetap */
+    height: 45px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+}
+
+.btn-favorit:hover {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-favorit.favorited {
+    background-color: #dc3545; 
+    color: white; 
+    border-color: #dc3545;
+}
+
+.btn-favorit.favorited:hover {
+    background-color: #c82333;
+    color: white;
+}
+
+/* .btn-favorit:disabled {
+    opacity: 0.5;
+
+} */
+
+.add-cart-btn {
+    flex-grow: 1; 
+    padding: 12px 25px;
+    font-size: 16px;
+}
+
+.product-container {
+    position: relative; 
+    padding-top: 40px; 
+    padding-right: 40px; 
+}
+.close-btn {
+    position: absolute;
+    top: 10px; 
+    right: 10px; 
+    font-size: 28px;
+    z-index: 100;
+}

@@ -396,5 +396,109 @@
         ],
         "total": 1099000,
         "tanggal": "2025-11-12 13:41:59"
+    },
+    {
+        "nama": "Samuel",
+        "alamat": "akghdwadasdwa",
+        "nohp": "081326069359",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "3",
+                "name": "Vans Old Skool",
+                "price": 1099000,
+                "brand": "Vans",
+                "warna": "Hitam-White",
+                "ukuran": "38",
+                "qty": 1
+            },
+            {
+                "id": "4",
+                "name": "Puma Suede Classic",
+                "price": 899000,
+                "brand": "Puma",
+                "warna": "Merah",
+                "ukuran": "40",
+                "qty": 1
+            }
+        ],
+        "total": 1998000,
+        "tanggal": "2025-11-12 16:15:37"
+    },
+    {
+        "nama": "Samuel",
+        "alamat": "sgsgsFasdadada",
+        "nohp": "081326069359",
+        "metode": "va",
+        "cart": [
+            {
+                "id": "4",
+                "name": "Puma Suede Classic",
+                "price": 899000,
+                "brand": "Puma",
+                "warna": "Merah",
+                "ukuran": "42",
+                "qty": 1
+            }
+        ],
+        "total": 899000,
+        "tanggal": "2025-11-12 18:22:44"
+    },
+    {
+        "nama": "Samuel",
+        "alamat": "dadad",
+        "nohp": "081326069359",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "4",
+                "name": "Puma Suede Classic",
+                "price": 899000,
+                "brand": "Puma",
+                "warna": "Merah",
+                "ukuran": "42",
+                "qty": 10
+            }
+        ],
+        "total": 8990000,
+        "tanggal": "2025-11-12 18:31:13"
+    },
+    {
+        "nama": "Jono",
+        "alamat": "dadwhduhowadsad",
+        "nohp": "081326069359",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "1",
+                "name": "Nike Air Force 1",
+                "price": 1729000,
+                "brand": "Nike",
+                "warna": "Hitam",
+                "ukuran": "44",
+                "qty": 1
+            }
+        ],
+        "total": 1729000,
+        "tanggal": "2025-11-12 18:39:22"
+    },
+    {
+        "nama": "Samuel",
+        "alamat": "ddwadsa",
+        "nohp": "081326069359",
+        "metode": "va",
+        "cart": [
+            {
+                "id": "5",
+                "name": "Converse Chuck Taylor",
+                "price": 799000,
+                "brand": "Converse",
+                "warna": "Putih",
+                "ukuran": "39",
+                "qty": 1
+            }
+        ],
+        "total": 799000,
+        "tanggal": "2025-11-12 18:39:41"
     }
 ]
