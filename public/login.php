@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['email'])) {
+    // Jika sudah login, lempar kembali ke dashboard/home
+    header("Location: dashboard.php"); 
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -14,12 +23,18 @@
       <form id="loginForm" action="../src/actions/handle_login.php" method="POST" enctype="multipart/form-data">
         <div class="input-group">
           <label>Email</label>
-          <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+          <input type="email" id="email" name="email" placeholder="example@gmail.com">
+          <small id="email-error" style="color:red; display:none; margin-top:5px;">
+            Email tidak valid!
+          </small>
         </div>
         <div class="input-group">
           <label>Password</label>
-          <input type="password" id="loginPassword" name="password" placeholder="Password" required>
+          <input type="password" id="loginPassword" name="password" placeholder="Password">
           <span class="password-toggle" onclick="togglePassword('loginPassword')">Tampilkan</span>
+          <small id="pw-error" style="color:red; display:none; margin-top:5px;">
+            Password salah!
+          </small>
         </div>
         <button type="submit" class="btn">Login</button>
       </form>

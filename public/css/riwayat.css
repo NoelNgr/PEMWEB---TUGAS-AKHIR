@@ -1,85 +1,6 @@
-body {
-  font-family: "Poppins", sans-serif;
-  background-color: #f7f8fa;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 50px;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: -webkit-fill-available;
-}
-
-.header-left, .header-right {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-}
-
-header .logo {
-  font-weight: bold;
-  font-size: 24px;
-  color: #3a3aeb;
-}
-
-header nav a {
-  margin: 0 10px;
-  color: #555;
-  font-size: 15px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid transparent;
+a{
   text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-header nav a:hover {
-  color: #3a3aeb;
-}
-
-header nav a.active {
-  color: #3a3aeb;
-  font-weight: bold;
-  border-bottom-color: #3a3aeb;
-}
-
-header .profile {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: #333;
-  font-size: 15px;
-  white-space: nowrap; 
-}
-
-header .profile .bi {
-  font-size: 22px;
-  color: #3a3aeb;
-}
-
-.btn-logout {
-  background-color: transparent;
-  color: #d32f2f;
-  border: none;
-  padding: 8px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btn-logout:hover {
-  background-color: #fdeeee;
+  color: inherit;
 }
 
 .riwayat-section {
@@ -108,11 +29,11 @@ header .profile .bi {
 
 .price {
   font-weight: bold;
-  color: #3aadeb;
+  color: #3a3aeb;
 }
 
 .btn-review {
-  background: #3aadeb;
+  background: #3a3aeb;
   color: #fff;
   border: none;
   padding: 8px 14px;
@@ -124,3 +45,94 @@ header .profile .bi {
 .btn-review:hover {
   background: #2d9ad3;
 }
+
+/* Cart Offcanvas - Tambahkan di akhir file CSS */
+.offcanvas {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    transition: right 0.3s ease-in-out;
+    z-index: 1050;
+    display: flex;
+    flex-direction: column;
+}
+
+.offcanvas.show {
+    right: 0;
+}
+
+.offcanvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.offcanvas-body {
+    padding: 20px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.btn-close {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.cart-item-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    border-top: 2px solid #ddd;
+    margin-top: 10px;
+}
+
+.btn-checkout {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-empty {
+    background-color: #ddd;
+    color: #555;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    cursor: not-allowed;
+}
+

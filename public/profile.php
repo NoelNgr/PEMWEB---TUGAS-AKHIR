@@ -45,7 +45,7 @@ if (!file_exists($fotoProfilPath) || $fotoProfil == 'defaultpicture.jpg') {
       <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
 
       <label for="whatsapp">WhatsApp</label>
-      <input type="text" id="whatsapp" name="whatsapp" value="<?php echo htmlspecialchars($user['whatsapp']); ?>" placeholder="08xxxxxxxxxx">
+      <input type="number" id="whatsapp" name="whatsapp" value="<?php echo htmlspecialchars($user['whatsapp']); ?>" placeholder="08xxxxxxxxxx">
 
       <label for="password">Ubah Password</label>
       <input type="password" id="password" name="password" placeholder="Kosongkan jika tidak ingin mengubah">

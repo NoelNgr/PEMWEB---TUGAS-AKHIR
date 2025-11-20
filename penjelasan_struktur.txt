@@ -24,9 +24,12 @@ kalcerin_project/
 |    |
 |    |--- 📂 css/
 |    |    |--- auth.css
-|    |    |--- checkout.css
 |    |    |--- checkout_success.css
+|    |    |--- checkout.css
+|    |    |--- detailprodutcs.css
 |    |    |--- dashboard.css
+|    |    |--- favorit.css
+|    |    |--- riwayat.css
 |    |    `--- profile.css
 |    |
 |    |--- 📂 js/
@@ -41,11 +44,15 @@ kalcerin_project/
 |    |    `--- (Kosong, untuk menyimpan foto profil user)
 |    |
 |    |--- index.php
+|    |--- ravorit.php
 |    |--- login.php
 |    |--- register.php
+|    |--- product_detail.php
+|    |--- product.php
 |    |--- dashboard.php
 |    |--- profile.php
 |    |--- checkout.php
+|    |--- riwayat.php
 |    `--- checkout_success.php
 |
 `--- 📂 src/
@@ -57,6 +64,8 @@ kalcerin_project/
      |    |--- handle_photo_upload.php
      |    |--- handle_profile_update.php
      |    |--- handle_register.php
+     |    |--- handle_review.php
+     |    |--- handle_favorit.php
      |    `--- logout.php
      |
      |--- 📂 data/

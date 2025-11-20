@@ -58,6 +58,7 @@ body {
 }
 .profile-form input[type="text"],
 .profile-form input[type="email"],
+.profile-form input[type="number"],
 .profile-form input[type="password"] {
   width: 100%;
   padding: 8px 10px;

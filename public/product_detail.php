@@ -86,7 +86,6 @@ $is_favorited = mysqli_num_rows($check_fav) > 0;
                 <h3>Rating Produk: <span><?php echo $selected['detail']['rating']; ?>/5</span></h3>
             </div>
 
-
             <div class="action-buttons">
                 <form action="../src/actions/handler_favorit.php" method="POST" style="display: inline;">
                     <input type="hidden" name="product_id" value="<?php echo $selected['id']; ?>">

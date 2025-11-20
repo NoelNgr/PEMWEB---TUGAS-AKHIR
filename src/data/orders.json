@@ -500,5 +500,62 @@
         ],
         "total": 799000,
         "tanggal": "2025-11-12 18:39:41"
+    },
+    {
+        "nama": "Jono",
+        "alamat": "iduhwaodoboasddbad",
+        "nohp": "081326069259",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "3",
+                "name": "Vans Old Skool",
+                "price": 1099000,
+                "brand": "Vans",
+                "warna": "Hitam-White",
+                "ukuran": "41",
+                "qty": 1
+            }
+        ],
+        "total": 1099000,
+        "tanggal": "2025-11-13 04:09:23"
+    },
+    {
+        "nama": "Muhammad Azharus Tsani",
+        "alamat": "Jl. Sunan Muria III No.6, Dinoyo, Kec. Lowokwaru, Kota Malang, Jawa Timur 65149",
+        "nohp": "085815899591",
+        "metode": "qris",
+        "cart": [
+            {
+                "id": "7",
+                "name": "Asics Gel-Kayano",
+                "price": 2499000,
+                "brand": "Asics",
+                "warna": "Hitam",
+                "ukuran": "41",
+                "qty": 1
+            }
+        ],
+        "total": 2499000,
+        "tanggal": "2025-11-19 04:56:08"
+    },
+    {
+        "nama": "Tsani",
+        "alamat": "dadwadadsdada",
+        "nohp": "081326069359",
+        "metode": "va",
+        "cart": [
+            {
+                "id": "1",
+                "name": "Nike Air Force 1",
+                "price": 1729000,
+                "brand": "Nike",
+                "warna": "Putih",
+                "ukuran": "41",
+                "qty": 1
+            }
+        ],
+        "total": 1729000,
+        "tanggal": "2025-11-20 01:18:19"
     }
 ]

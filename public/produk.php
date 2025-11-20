@@ -60,7 +60,7 @@ if ($stmt && $stmt->execute()) {
 if ($search_query) {
     $section_title = 'Hasil Pencarian untuk "' . htmlspecialchars($search_query) . '"';
 } else {
-    $section_title = 'Produk Terlaris';
+    $section_title = 'Katalog Produk Kami';
 }
 // --- PERUBAHAN SELESAI ---
 
@@ -80,39 +80,10 @@ include 'header.php';
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Beranda - KALC3R</title>
   <link rel="stylesheet" href="css/dashboard.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
-  
   <main>
-    <section class="hero">
-      <div class="hero-content">
-        <h1>Koleksi Sepatu Terbaru</h1>
-        <p>Temukan gaya terbaikmu dengan koleksi eksklusif yang baru tiba. Kualitas dan kenyamanan dalam setiap langkah.</p>
-        <a href="produk.php"><button class="cta-button">Belanja Sekarang</button></a>
-      </div>
-    </section>
-
-    <section class="page-section">
-      <h2 class="section-title">Jelajahi Berdasarkan Kategori</h2>
-      <div class="category-grid">
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" alt="Sepatu Pria">
-          <div class="category-name">Pria</div>
-        </div>
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1898&auto=format&fit=crop" alt="Sepatu Wanita">
-          <div class="category-name">Wanita</div>
-        </div>
-        <div class="category-card">
-          <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1964&auto=format&fit=crop" alt="Sepatu Anak">
-          <div class="category-name">Anak</div>
-        </div>
-      </div>
-    </section>
-
     <section class="page-section">
     
     <h2 class="section-title"><?php echo $section_title; ?></h2>
@@ -164,6 +135,8 @@ include 'header.php';
       </div>
     </section>
   </main>
+
+  <?php include 'footer.php'; ?>
 
   <div class="offcanvas" id="cartDrawer">
     <div class="offcanvas-header">
@@ -226,8 +199,6 @@ include 'header.php';
       <?php endif; ?>
     </div>
   </div>
-
-  <?php include 'footer.php'; ?>
   
   <script src="js/dashboard.js"></script>
 </body>

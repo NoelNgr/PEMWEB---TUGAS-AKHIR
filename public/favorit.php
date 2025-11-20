@@ -8,6 +8,7 @@ if (!isset($_SESSION['email'])) {
 }
 
 $fullname = $_SESSION['fullname'] ?? 'User';
+$cart = $_SESSION['cart'] ?? [];
 $id_pelanggan = $_SESSION['id_pelanggan'] ?? null; 
 $fotoProfil = $_SESSION['foto_profil'] ?? 'defaultpicture.jpg';
 $fotoProfilPath = 'uploads/' . $fotoProfil;
@@ -61,42 +62,12 @@ if ($id_pelanggan && $conn) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/favorit.css" />
+    <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <title>Produk Favorit - KALC3R</title>
 </head>
 <body>
-    <header>
-        <div class="header-left">
-            <div class="logo">KALC3R</div>
-            <nav>
-                <a href="dashboard.php">Beranda</a>
-                <a href="#">Produk</a>
-                <a href="#">Pre-order</a>
-                <a href="riwayat.php">Riwayat Pesanan</a>
-            </nav>
-        </div>
-        <div class="header-right">
-            <div class="wishlist">
-                <a href="favorit.php" class="btn btn-secondary active"> 
-                    <i class="bi bi-heart" style="color: red"></i> Favorit
-                </a>
-            </div>
-            <div class="profile">
-                <a href="profile.php" style="display:flex;align-items:center;gap:8px;text-decoration:none;color:inherit;">
-                    <img
-                        src="<?php echo htmlspecialchars($fotoProfilPath); ?>"
-                        alt="Foto Profil"
-                        style="width:30px;height:30px;border-radius:50%;object-fit:cover;border:2px solid #3aadeb;">
-                    <span><?php echo htmlspecialchars($fullname); ?></span>
-                </a>
-            </div>
-            <form action="../src/actions/logout.php" method="POST">
-                <button type="submit" class="btn-logout">
-                    <i class="bi bi-box-arrow-right"></i>
-                </button>
-            </form>
-        </div>
-    </header>
+    <?php include 'header.php'; ?>
 
     <main class="favorit-content">
         <h1>Favorit Anda</h1>
@@ -140,8 +111,8 @@ if ($id_pelanggan && $conn) {
             <?php endif; ?>
         </div>
     </main>
-
-    <script>
+    
+    <script src="js/dashboard.js">
         document.querySelectorAll('.remove-form').forEach(form => {
             form.addEventListener('submit', function(e) {
                 if (!confirm('Anda yakin ingin menghapus produk ini dari favorit?')) {
@@ -149,6 +120,67 @@ if ($id_pelanggan && $conn) {
                 }
             });
         });
-    </script>
+        </script>
+        <div class="offcanvas" id="cartDrawer">
+    <div class="offcanvas-header">
+        <h5>Keranjang Saya</h5>
+        <button type="button" class="btn-close" id="closeCartButton">×</button>
+    </div>
+
+    <div class="offcanvas-body">
+        <?php if (!empty($cart)): ?>
+            <ul class="cart-item-list">
+                <?php
+                $total = 0;
+                foreach ($cart as $index => $item):
+                    $subtotal = (int)($item['price'] ?? 0) * (int)($item['qty'] ?? 1);
+                    $total += $subtotal;
+                ?>
+                    <li class="cart-item">
+                        <div class="item-info">
+                            <strong><?php echo htmlspecialchars($item['name'] ?? 'Nama Produk'); ?></strong><br>
+                            <small>Brand: <?php echo htmlspecialchars($item['brand'] ?? 'Brand'); ?></small><br>
+
+                            <?php if (!empty($item['warna'])): ?>
+                                <small>Warna: <?php echo htmlspecialchars($item['warna']); ?></small><br>
+                            <?php endif; ?>
+
+                            <?php if (!empty($item['ukuran'])): ?>
+                                <small>Ukuran: <?php echo htmlspecialchars($item['ukuran']); ?></small><br>
+                            <?php endif; ?>
+
+                            <span><?php echo (int)($item['qty'] ?? 1); ?>x - Rp <?php echo number_format((int)($item['price'] ?? 0), 0, ',', '.'); ?></span>
+                        </div>
+
+                        <a href="../src/actions/handle_cart.php?remove=<?php echo $index; ?>" class="btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+
+            <div class="cart-total">
+                <strong>Total</strong>
+                <span>Rp <?php echo number_format($total, 0, ',', '.'); ?></span>
+            </div>
+
+            <div class="cart-actions">
+                <form action="checkout.php" method="POST">
+                    <button type="submit" class="btn-checkout">
+                        <i class="bi bi-bag-check"></i> Checkout
+                    </button>
+                </form>
+            </div>
+        <?php else: ?>
+            <p>Pilih barang untuk ditambahkan ke keranjang!</p>
+            <div class="cart-actions">
+                <button class="btn-empty" disabled>
+                    <i class="bi bi-bag-x"></i> Checkout
+                </button>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
+        <?php include 'footer.php'; ?>
 </body>
 </html>

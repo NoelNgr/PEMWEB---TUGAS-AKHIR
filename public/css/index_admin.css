@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f0f6ff;
+    /* biru sangat muda */
+}
+
+h1 {
+    color: #0a5cf5;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p {
+    text-align: center;
+    font-size: 18px;
+    color: #003d99;
+    margin-bottom: 40px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 300px;
+    margin: auto;
+}
+
+ul li {
+    margin-bottom: 15px;
+}
+
+ul li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    background: #0a5cf5;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+ul li a:hover {
+    background: #0847c2;
+}
