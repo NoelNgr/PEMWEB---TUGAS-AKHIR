@@ -39,12 +39,11 @@ while ($row = $resOrders->fetch_assoc()) {
 /* =======================================
    AMBIL DETAIL PRODUK UNTUK SETIAP ORDER
    ======================================= */
-$orderDetails = []; // id_order → list of products
+$orderDetails = []; 
 
 if (!empty($orders)) {
     $orderIds = array_column($orders, 'id_order');
     $placeholders = implode(",", array_fill(0, count($orderIds), "?"));
-
     $types = str_repeat("i", count($orderIds));
 
     $sql = "
@@ -62,7 +61,6 @@ if (!empty($orders)) {
         $orderDetails[$row['id_order']][] = $row;
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -126,10 +124,7 @@ if (!empty($orders)) {
                         </div>
 
                         <div class="order-footer">
-                            <?php
-                            // Jika status order "Berhasil" atau "Selesai", tombol review aktif
-                            if (strtolower($order['status']) === 'berhasil' || strtolower($order['status']) === 'selesai'):
-                            ?>
+                            <?php if (strtolower($order['status']) === 'berhasil' || strtolower($order['status']) === 'selesai'): ?>
                                 <a href="rating.php?order_id=<?= $order['id_order'] ?>" class="btn-review">
                                     <i class="bi bi-star"></i> Beri Rating
                                 </a>
@@ -140,12 +135,73 @@ if (!empty($orders)) {
                             <?php endif; ?>
                         </div>
 
-
                     </div>
                 <?php endforeach; ?>
 
             <?php endif; ?>
         </section>
+
+        <!-- ============= OFFCANVAS CART (HANYA SATU) ============= -->
+        <div class="offcanvas" id="cartDrawer">
+            <div class="offcanvas-header">
+                <h5>Keranjang Saya</h5>
+                <button type="button" class="btn-close" id="closeCartButton">×</button>
+            </div>
+
+            <div class="offcanvas-body">
+                <?php if (!empty($cart)): ?>
+                    <ul class="cart-item-list">
+                        <?php
+                        $total = 0;
+                        foreach ($cart as $index => $item):
+                            $subtotal = (int)($item['price'] ?? 0) * (int)($item['qty'] ?? 1);
+                            $total += $subtotal;
+                        ?>
+                            <li class="cart-item">
+                                <div class="item-info">
+                                    <strong><?= htmlspecialchars($item['name']); ?></strong><br>
+                                    <small>Brand : <?= htmlspecialchars($item['brand']); ?></small><br>
+
+                                    <?php if (!empty($item['warna'])): ?>
+                                        <small>Warna: <?= htmlspecialchars($item['warna']); ?></small><br>
+                                    <?php endif; ?>
+
+                                    <?php if (!empty($item['ukuran'])): ?>
+                                        <small>Ukuran: <?= htmlspecialchars($item['ukuran']); ?></small><br>
+                                    <?php endif; ?>
+
+                                    <span><?= $item['qty']; ?>x - Rp <?= number_format($item['price']); ?></span>
+                                </div>
+
+                                <a href="../src/actions/handle_cart.php?remove=<?= $index; ?>" class="btn-danger">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+
+                    <div class="cart-total">
+                        <strong>Total</strong>
+                        <span>Rp <?= number_format($total); ?></span>
+                    </div>
+
+                    <div class="cart-actions">
+                        <form action="checkout.php" method="POST">
+                            <button type="submit" class="btn-checkout">
+                                <i class="bi bi-bag-check"></i> Checkout
+                            </button>
+                        </form>
+                    </div>
+                <?php else: ?>
+                    <p>Keranjang masih kosong!</p>
+                    <div class="cart-actions">
+                        <button class="btn-empty" disabled>
+                            <i class="bi bi-bag-x"></i> Checkout
+                        </button>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
 
         <script src="js/dashboard.js"></script>
     </main>

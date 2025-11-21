@@ -1,4 +1,8 @@
 <?php 
+
+if (!isset($_SESSION)) { session_start(); }
+$cart = $_SESSION['cart'] ?? [];
+
 include "../src/conn.php";
 ?>
 
@@ -65,6 +69,7 @@ include "../src/conn.php";
                             <span class="cart-badge"><?php echo count($cart); ?></span>
                         </button>
                     </div>
+
 
                     <!-- Profile -->
                     <div class="profile">

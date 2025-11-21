@@ -65,6 +65,7 @@ kalcerin_project/
      |    |--- handle_profile_update.php
      |    |--- handle_register.php
      |    |--- handle_review.php
+     |    |--- handle_rating.php
      |    |--- handle_favorit.php
      |    `--- logout.php
      |

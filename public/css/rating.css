@@ -23,24 +23,36 @@ body {
 }
 
 .stars {
-    margin-top: 10px;
+    display: flex;
+    flex-direction: row-reverse; /* TRIK UTAMA */
+    justify-content: flex-start;
+    gap: 5px;
 }
 
 .stars input {
-    display: none;
+    display: none; /* sembunyikan radio */
 }
 
+/* Warna default */
 .stars label {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #ccc;
     cursor: pointer;
 }
 
-.stars input:checked ~ label,
+/* Hover (kiri ke kanan) */
 .stars label:hover,
 .stars label:hover ~ label {
     color: gold;
 }
+
+/* Checked (kiri ke kanan) */
+.stars input:checked ~ label {
+    color: gold;
+}
+
+
+
 
 textarea {
     width: 100%;

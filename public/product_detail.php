@@ -1,26 +1,21 @@
 <?php
 session_start();
-// --- PERUBAHAN DIMULAI DI SINI ---
-require_once '../src/conn.php'; // Pakai koneksi DB
+require_once '../src/conn.php';
 
 if (!isset($_GET['id'])) {
     echo "Produk tidak ditemukan.";
     exit;
 }
 
-$id = $_GET['id']; // Ambil ID dari URL
+$id = $_GET['id'];
 $selected = null;
 
-// Ambil 1 produk dari DB berdasarkan ID
-// (Mengikuti style kode Anda yang rentan SQL Injection, sesuai file login/register)
 $sql = "SELECT * FROM products WHERE id = $id";
 $result = mysqli_query($conn, $sql);
 
 if ($result && mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
 
-    // REKONSTRUKSI ARRAY $selected agar sama persis seperti struktur lama
-    // Ini adalah kunci agar sisa file HTML tidak perlu diubah
     $selected = [
         'id' => $row['id'],
         'name' => $row['name'],
@@ -31,7 +26,6 @@ if ($result && mysqli_num_rows($result) == 1) {
         'detail' => [
             'deskripsi' => $row['deskripsi'],
             'rating' => $row['rating'],
-            // Ubah string JSON dari DB kembali menjadi array PHP
             'warna' => json_decode($row['warna'], true),
             'ukuran' => json_decode($row['ukuran'], true)
         ]
@@ -46,7 +40,6 @@ $id_pelanggan = $_SESSION['id_pelanggan'] ?? 0;
 
 $check_fav = mysqli_query($conn, "SELECT id FROM favorit WHERE id_pelanggan = '$id_pelanggan' AND products_id = '$product_id'");
 $is_favorited = mysqli_num_rows($check_fav) > 0;
-// --- PERUBAHAN SELESAI DI SINI ---
 ?>
 
 <!DOCTYPE html>
@@ -139,24 +132,35 @@ $is_favorited = mysqli_num_rows($check_fav) > 0;
 
             <hr>
             <hr>
+            
             <h3>Ulasan Produk</h3>
 
             <?php
             $canReview = false;
 
             if (isset($_SESSION['fullname'])) {
-                $ordersFile = __DIR__ . '/../src/data/orders.json';
-                if (file_exists($ordersFile)) {
-                    $orders = json_decode(file_get_contents($ordersFile), true);
-                    foreach ($orders as $order) {
-                        if ($order['nama'] == $_SESSION['fullname']) {
-                            foreach ($order['cart'] as $c) {
-                                if ($c['name'] == $selected['name']) {
-                                    $canReview = true;
-                                    break 2;
-                                }
-                            }
-                        }
+                // Cek apakah user sudah pernah review produk ini
+                $check_already_reviewed = mysqli_query($conn, "
+                    SELECT 1 FROM reviews 
+                    WHERE id_pelanggan = '{$_SESSION['id_pelanggan']}'
+                    AND product_id = '{$selected['id']}'
+                    LIMIT 1
+                ");
+                
+                if (mysqli_num_rows($check_already_reviewed) == 0) {
+                    // Cek apakah user pernah beli produk SPESIFIK ini dengan JOIN ke order_detail
+                    $check_purchase = mysqli_query($conn, "
+                        SELECT 1 
+                        FROM orders o
+                        INNER JOIN order_detail od ON o.id_order = od.id_order
+                        WHERE o.nama_pelanggan = '{$_SESSION['fullname']}'
+                        AND o.status = 'Berhasil'
+                        AND od.id_produk = '{$selected['id']}'
+                        LIMIT 1
+                    ");
+                    
+                    if (mysqli_num_rows($check_purchase) > 0) {
+                        $canReview = true;
                     }
                 }
             }
@@ -221,35 +225,33 @@ $is_favorited = mysqli_num_rows($check_fav) > 0;
         <h2>Review Pembeli</h2>
 
         <?php
-        // Path ke file JSON
-        $reviewsFile = __DIR__ . '/../src/data/reviews.json';
-        $productReviews = [];
+        // JOIN reviews dengan user untuk ambil nama_pelanggan (fullname)
+        $stmt_reviews = $conn->prepare("
+            SELECT r.comment, r.rating, r.id_pelanggan, u.fullname
+            FROM reviews r
+            LEFT JOIN user u ON r.id_pelanggan = u.id_pelanggan
+            WHERE r.product_id = ?
+            ORDER BY r.created_at DESC
+        ");
+        $stmt_reviews->bind_param("i", $selected['id']);
+        $stmt_reviews->execute();
+        $result_reviews = $stmt_reviews->get_result();
+        $productReviews = $result_reviews->fetch_all(MYSQLI_ASSOC);
 
-        // Cek apakah file review ada dan bisa dibaca
-        if (file_exists($reviewsFile)) {
-            $allReviews = json_decode(file_get_contents($reviewsFile), true);
-
-            // Filter review berdasarkan product_id
-            $productReviews = array_filter($allReviews, function ($r) use ($selected) {
-                return isset($r['product_id']) && $r['product_id'] == $selected['id'];
-            });
-        }
-
-        // Jika belum ada review sama sekali
         if (empty($productReviews)): ?>
             <p class="no-review">Belum ada ulasan untuk produk ini.</p>
 
         <?php else: ?>
             <?php foreach ($productReviews as $r): ?>
                 <div class="review-card">
-                    <p><strong><?php echo htmlspecialchars($r['user']); ?></strong> — ⭐<?php echo (int)$r['rating']; ?>/5</p>
-                    <p><?php echo htmlspecialchars($r['review']); ?></p>
-                    <small><?php echo htmlspecialchars($r['date']); ?></small>
+                    <p><strong><?php echo htmlspecialchars($r['fullname'] ?? 'User #' . $r['id_pelanggan']); ?></strong> — ⭐<?php echo (int)$r['rating']; ?>/5</p>
+                    <p><?php echo htmlspecialchars($r['comment']); ?></p>
                     <hr>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>
+
     </div>
 
 </body>
